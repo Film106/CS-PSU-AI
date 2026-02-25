@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>CS PSU AI — Track Analysis</title>
+  <meta name="description"
+    content="ค้นหาสายการเรียน CS ที่เหมาะกับคุณด้วย AI — Software Engineering, Data Science, Intelligent Systems, Network & Security" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Syne:wght@600;700;800&family=Prompt:wght@200;300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <canvas id="cv"></canvas>
+  <div class="scan"></div>
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- ════════════════════════════════════════
+     LANDING PAGE
+════════════════════════════════════════ -->
+  <div class="landing" id="landing">
+
+    <!-- NAV -->
+    <nav class="top-nav">
+      <span class="nav-logo">CS PSU AI</span>
+      <div class="nav-badge">
+        <div class="bdot"></div>Demo Mode
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+      <div class="orb orb4"></div>
+
+      <div class="hero-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="1.2"
+          stroke-linecap="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z" />
+          <path d="M2 17l10 5 10-5" />
+          <path d="M2 12l10 5 10-5" />
+        </svg>
+        <span class="hero-icon-ring"></span>
+      </div>
+
+      <h1 class="hero-title">AI Track<br>Recommender</h1>
+      <p class="hero-sub">
+        ค้นหาสายการเรียน <strong>Computer Science</strong> ที่เหมาะกับคุณ<br>
+        ด้วยระบบ AI วิเคราะห์ความถนัดจาก <strong>10 คำถาม</strong><br>
+        ภาควิชาวิทยาการคอมพิวเตอร์ ม.อ.
+      </p>
+
+      <button class="hero-cta start-quiz-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <polygon points="5,3 19,12 5,21" />
+        </svg>
+        เริ่มการวิเคราะห์
+      </button>
+
+      <!-- Floating decoration badges -->
+      <div class="hero-float hero-float-1">⚡ AI-Powered</div>
+      <div class="hero-float hero-float-2">🎯 4 Tracks</div>
+      <div class="hero-float hero-float-3">📊 Data-Driven</div>
+      <div class="hero-float hero-float-4">🔒 CS PSU</div>
+
+      <div class="scroll-hint">
+        <span>SCROLL DOWN</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+      </div>
+    </section>
+
+    <div class="landing-inner">
+
+      <!-- ══ TRACK CARDS ══ -->
+      <section class="section">
+        <div class="reveal">
+          <div class="section-label">Tracks</div>
+          <h2 class="section-title">4 สายการเรียนที่รอคุณอยู่</h2>
+          <p class="section-desc">แต่ละสายมีจุดเด่นและเส้นทางอาชีพที่ต่างกัน ค้นหาว่าสายไหนตรงกับตัวคุณมากที่สุด</p>
+        </div>
+
+        <div class="tracks-grid">
+          <div class="track-card tc-se reveal reveal-delay-1">
+            <div class="tc-shimmer"></div>
+            <div class="tc-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="1.5"
+                stroke-linecap="round">
+                <path d="M16 18l6-6-6-6" />
+                <path d="M8 6l-6 6 6 6" />
+              </svg>
+            </div>
+            <div class="tc-name">Software Engineering</div>
+            <div class="tc-desc">สร้าง Web App, Mobile App, ระบบ Cloud — เน้น product ที่มีคนใช้งานจริง</div>
+            <div class="tc-tags"><span class="tc-tag">Web Dev</span><span class="tc-tag">Mobile</span><span
+                class="tc-tag">DevOps</span><span class="tc-tag">Cloud</span></div>
+          </div>
+          <div class="track-card tc-ds reveal reveal-delay-2">
+            <div class="tc-shimmer"></div>
+            <div class="tc-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5"
+                stroke-linecap="round">
+                <path d="M18 20V10" />
+                <path d="M12 20V4" />
+                <path d="M6 20v-6" />
+              </svg>
+            </div>
+            <div class="tc-name">Data Science</div>
+            <div class="tc-desc">วิเคราะห์ข้อมูล, สร้าง ML Model, เปลี่ยนตัวเลขเป็น business insight</div>
+            <div class="tc-tags"><span class="tc-tag">Python</span><span class="tc-tag">ML</span><span
+                class="tc-tag">Statistics</span><span class="tc-tag">Big Data</span></div>
+          </div>
+          <div class="track-card tc-is reveal reveal-delay-3">
+            <div class="tc-shimmer"></div>
+            <div class="tc-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.5"
+                stroke-linecap="round">
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+              </svg>
+            </div>
+            <div class="tc-name">Intelligent Systems</div>
+            <div class="tc-desc">AI, Computer Vision, NLP, Robotics — ทำให้คอมพิวเตอร์ฉลาดขึ้น</div>
+            <div class="tc-tags"><span class="tc-tag">AI/ML</span><span class="tc-tag">NLP</span><span
+                class="tc-tag">Vision</span><span class="tc-tag">Deep Learning</span></div>
+          </div>
+          <div class="track-card tc-ns reveal reveal-delay-4">
+            <div class="tc-shimmer"></div>
+            <div class="tc-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5"
+                stroke-linecap="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div class="tc-name">Network & Security</div>
+            <div class="tc-desc">Cybersecurity, Penetration Testing, Network Admin — ปกป้องระบบดิจิทัล</div>
+            <div class="tc-tags"><span class="tc-tag">Security</span><span class="tc-tag">Network</span><span
+                class="tc-tag">Forensics</span><span class="tc-tag">Cloud</span></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ══ HOW IT WORKS ══ -->
+      <section class="section">
+        <div class="reveal">
+          <div class="section-label">How It Works</div>
+          <h2 class="section-title">ง่ายแค่ 3 ขั้นตอน</h2>
+          <p class="section-desc">ไม่ต้องสมัคร ไม่ต้อง login — แค่ตอบคำถามแล้ว AI จะวิเคราะห์ให้ทันที</p>
+        </div>
+        <div class="steps-row">
+          <div class="step-card reveal reveal-delay-1">
+            <div class="step-num">01</div>
+            <div class="step-name">ตอบคำถาม</div>
+            <div class="step-text">ตอบ 10 คำถามเกี่ยวกับความสนใจ สไตล์การทำงาน และเป้าหมายอาชีพของคุณ</div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="step-card reveal reveal-delay-2">
+            <div class="step-num">02</div>
+            <div class="step-name">AI วิเคราะห์</div>
+            <div class="step-text">ระบบ AI จะประมวลผลคำตอบของคุณ เทียบกับ 4 สายการเรียนแบบ real-time</div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="step-card reveal reveal-delay-3">
+            <div class="step-num">03</div>
+            <div class="step-name">รับผลลัพธ์</div>
+            <div class="step-text">ดูว่าสายไหนเหมาะกับคุณที่สุด พร้อม roadmap การเรียนตลอด 4 ปี</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ══ STATS ══ -->
+      <section class="section" id="stats-section">
+        <div class="reveal">
+          <div class="section-label">Stats</div>
+          <h2 class="section-title">ตัวเลขที่น่าสนใจ</h2>
+        </div>
+        <div class="stats-row reveal reveal-delay-1">
+          <div class="stat-card">
+            <div class="stat-num" data-count="10">0</div>
+            <div class="stat-label">คำถามทั้งหมด</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" data-count="4">0</div>
+            <div class="stat-label">สายการเรียน</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" data-count="5" data-suffix=" นาที">0</div>
+            <div class="stat-label">เวลาโดยประมาณ</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" data-count="100" data-suffix="%">0</div>
+            <div class="stat-label">AI-Powered</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ══ CTA ══ -->
+      <section class="cta-section reveal">
+        <div class="cta-box">
+          <div class="cta-title">พร้อมค้นหาสายที่ใช่แล้วหรือยัง?</div>
+          <div class="cta-sub">ใช้เวลาแค่ 5 นาที ไม่ต้องสมัครสมาชิก — เริ่มได้เลย!</div>
+          <button class="hero-cta start-quiz-btn" style="position:relative">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <polygon points="5,3 19,12 5,21" />
+            </svg>
+            เริ่มทำแบบทดสอบ
+          </button>
+        </div>
+      </section>
+
+      <footer class="landing-footer">
+        CS PSU AI · Track Analysis · Department of Computer Science, PSU
+      </footer>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+     QUIZ MODE
+════════════════════════════════════════ -->
+  <div class="quiz-mode" id="quiz-mode">
+    <div class="prog-track" style="height:2px;grid-row:2">
+      <div class="prog-fill" id="prog"></div>
+    </div>
+    <header class="quiz-header" style="grid-row:1">
+      <button class="back-btn" id="back-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round">
+          <path d="M19 12H5M12 5l-7 7 7 7" />
+        </svg>
+        กลับ
+      </button>
+      <span class="hdr-title">CS PSU · Track Analysis</span>
+      <div class="nav-badge">
+        <div class="bdot"></div>Demo Mode
+      </div>
+    </header>
+    <main class="quiz-main" id="quiz-main" style="grid-row:3">
+      <div id="messages"></div>
+    </main>
+    <footer class="quiz-footer" style="grid-row:4">
+      <div class="step-ctr" id="sctr">
+        <span class="sn" id="snum">0</span>
+        <span>/10</span>
+      </div>
+      <div class="inp-wrap" style="opacity:.3;pointer-events:none">
+        <span class="inp-pre">&gt;</span>
+        <input type="text" id="txt-inp" placeholder="พิมพ์คำตอบ..." autocomplete="off" disabled />
+        <button class="send-btn" disabled>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <path d="M22 2L11 13M22 2l-7 18-4-8-8-4 18-7z" />
+          </svg>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
