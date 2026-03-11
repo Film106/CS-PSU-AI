@@ -123,6 +123,13 @@ body::before {
   opacity: .45
 }
 
+@media (max-width: 768px) {
+  .orb {
+    filter: blur(50px);
+    opacity: 0.1;
+  }
+}
+
 .cursor-glow {
   position: fixed;
   width: 300px;
@@ -468,7 +475,7 @@ body::before {
 }
 
 .hero-sub {
-  font-size: 1.05rem;
+  font-size: clamp(0.85rem, 3vw, 1.05rem);
   font-weight: 300;
   color: var(--muted);
   max-width: 520px;
@@ -1243,9 +1250,16 @@ body::before {
   z-index: 2;
   display: none;
   height: 100vh;
+  height: 100dvh;
   max-width: 860px;
   margin: 0 auto;
   grid-template-rows: 56px 2px 1fr 76px
+}
+
+@media (max-width: 640px) {
+  .quiz-mode {
+    grid-template-rows: 50px 2px 1fr auto;
+  }
 }
 
 .quiz-mode.active {
@@ -1397,6 +1411,20 @@ body::before {
   color: var(--text);
   position: relative;
   overflow: hidden
+}
+
+@media (max-width: 480px) {
+
+  .abubble,
+  .ububble {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .av {
+    width: 26px;
+    height: 26px;
+  }
 }
 
 .abubble::before {
@@ -1656,7 +1684,8 @@ body::before {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-top: 16px
+  margin-top: 16px;
+  justify-content: center;
 }
 
 .ra {
@@ -1910,6 +1939,28 @@ body::before {
   display: grid !important;
   grid-template-columns: repeat(5, 1fr) !important;
   gap: 12px !important;
+}
+
+@media (max-width: 580px) {
+  .likert-row {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* Center the last two items if we have 5 */
+  .likert-row .likert-opt:nth-child(n+4) {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 400px) {
+  .likert-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .likert-row .likert-opt:last-child {
+    grid-column: span 2;
+  }
 }
 
 .likert-opt {
