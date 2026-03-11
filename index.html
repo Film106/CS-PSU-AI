@@ -51,7 +51,7 @@
       <h1 class="hero-title">AI Track<br>Recommender</h1>
       <p class="hero-sub">
         ค้นหาสายการเรียน <strong>Computer Science</strong> ที่เหมาะกับคุณ<br>
-        ด้วยระบบ AI วิเคราะห์ความถนัดจาก <strong>10 คำถาม</strong><br>
+        ด้วยระบบ AI วิเคราะห์ความถนัดจาก <strong>25 คำถาม</strong><br>
         ภาควิชาวิทยาการคอมพิวเตอร์ ม.อ.
       </p>
 
@@ -162,7 +162,7 @@
           <div class="step-card reveal reveal-delay-1">
             <div class="step-num">01</div>
             <div class="step-name">ตอบคำถาม</div>
-            <div class="step-text">ตอบ 10 คำถามเกี่ยวกับความสนใจ สไตล์การทำงาน และเป้าหมายอาชีพของคุณ</div>
+            <div class="step-text">ตอบ 25 คำถามเกี่ยวกับความสนใจ สไตล์การทำงาน และเป้าหมายอาชีพของคุณ</div>
             <div class="step-connector"></div>
           </div>
           <div class="step-card reveal reveal-delay-2">
@@ -189,7 +189,7 @@
         </div>
         <div class="stats-row reveal reveal-delay-1">
           <div class="stat-card">
-            <div class="stat-num" data-count="10">0</div>
+            <div class="stat-num" data-count="25">0</div>
             <div class="stat-label">คำถามทั้งหมด</div>
           </div>
           <div class="stat-card">
@@ -256,7 +256,7 @@
     <footer class="quiz-footer" style="grid-row:4">
       <div class="step-ctr" id="sctr">
         <span class="sn" id="snum">0</span>
-        <span>/10</span>
+        <span id="total-q">/10</span>
       </div>
       <div class="inp-wrap" style="opacity:.3;pointer-events:none">
         <span class="inp-pre">&gt;</span>
@@ -271,6 +271,8 @@
     </footer>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="psu-ai.js"></script>
   <script src="script.js"></script>
 </body>
 

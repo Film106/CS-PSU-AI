@@ -1,0 +1,46 @@
+﻿
+/* Likert Scale and Input Styles */
+.likert-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.likert-opt {
+  flex-direction: column;
+  padding: 16px 8px;
+  text-align: center;
+  justify-content: center;
+}
+
+.likert-opt .olabel {
+  margin-right: 0;
+  margin-bottom: 8px;
+  width: 28px;
+  height: 28px;
+}
+
+.l-desc {
+  font-size: 0.65rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Number input styling */
+input[type='number'] {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+

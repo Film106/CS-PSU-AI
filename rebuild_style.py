@@ -1,4 +1,12 @@
-:root {
+
+import os
+
+style_path = r"d:\CS\style.css"
+
+# The core CSS content based on the user's provided snippet, cleaned and fixed.
+# I will fix the glitch animations and ensure the Likert styles are properly appended.
+
+css_content = """:root {
   --bg: #03070f;
   --surface: #07101e;
   --surface2: #0b1828;
@@ -79,23 +87,10 @@ body::after {
 }
 
 @keyframes scan {
-  0% {
-    top: -2px;
-    opacity: 0
-  }
-
-  3% {
-    opacity: 1
-  }
-
-  97% {
-    opacity: 1
-  }
-
-  100% {
-    top: 100vh;
-    opacity: 0
-  }
+  0% { top: -2px; opacity: 0 }
+  3% { opacity: 1 }
+  97% { opacity: 1 }
+  100% { top: 100vh; opacity: 0 }
 }
 
 body::before {
@@ -110,9 +105,7 @@ body::before {
 }
 
 @keyframes gdrift {
-  to {
-    background-position: 48px 48px
-  }
+  to { background-position: 48px 48px }
 }
 
 #cv {
@@ -136,9 +129,7 @@ body::before {
   opacity: 0
 }
 
-.cursor-glow.active {
-  opacity: 1
-}
+.cursor-glow.active { opacity: 1 }
 
 .orb {
   position: absolute;
@@ -178,39 +169,18 @@ body::before {
 }
 
 @keyframes orbFloat1 {
-
-  0%,
-  100% {
-    transform: translate(0, 0)
-  }
-
-  50% {
-    transform: translate(60px, 40px)
-  }
+  0%, 100% { transform: translate(0, 0) }
+  50% { transform: translate(60px, 40px) }
 }
 
 @keyframes orbFloat2 {
-
-  0%,
-  100% {
-    transform: translate(0, 0)
-  }
-
-  50% {
-    transform: translate(-50px, -30px)
-  }
+  0%, 100% { transform: translate(0, 0) }
+  50% { transform: translate(-50px, -30px) }
 }
 
 @keyframes orbFloat3 {
-
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1)
-  }
-
-  50% {
-    transform: translate(-50%, -50%) scale(1.3)
-  }
+  0%, 100% { transform: translate(-50%, -50%) scale(1) }
+  50% { transform: translate(-50%, -50%) scale(1.3) }
 }
 
 .orb4 {
@@ -223,19 +193,9 @@ body::before {
 }
 
 @keyframes orbFloat4 {
-
-  0%,
-  100% {
-    transform: translate(0, 0) scale(.8)
-  }
-
-  33% {
-    transform: translate(-40px, 30px) scale(1.1)
-  }
-
-  66% {
-    transform: translate(20px, -20px) scale(.9)
-  }
+  0%, 100% { transform: translate(0, 0) scale(.8) }
+  33% { transform: translate(-40px, 30px) scale(1.1) }
+  66% { transform: translate(20px, -20px) scale(.9) }
 }
 
 .landing {
@@ -267,15 +227,8 @@ body::before {
 }
 
 @keyframes navSlideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1
-  }
+  from { transform: translateY(-100%); opacity: 0 }
+  to { transform: translateY(0); opacity: 1 }
 }
 
 .nav-logo {
@@ -306,15 +259,8 @@ body::before {
 }
 
 @keyframes badgePulse {
-
-  0%,
-  100% {
-    box-shadow: 0 0 0 rgba(0, 229, 255, 0)
-  }
-
-  50% {
-    box-shadow: 0 0 12px rgba(0, 229, 255, .15)
-  }
+  0%, 100% { box-shadow: 0 0 0 rgba(0, 229, 255, 0) }
+  50% { box-shadow: 0 0 12px rgba(0, 229, 255, .15) }
 }
 
 .bdot {
@@ -327,16 +273,8 @@ body::before {
 }
 
 @keyframes bp {
-
-  0%,
-  100% {
-    transform: scale(1)
-  }
-
-  50% {
-    transform: scale(1.6);
-    opacity: .5
-  }
+  0%, 100% { transform: scale(1) }
+  50% { transform: scale(1.6); opacity: .5 }
 }
 
 .hero {
@@ -366,15 +304,8 @@ body::before {
 }
 
 @keyframes heroIconEntry {
-  from {
-    transform: scale(0) rotate(-180deg);
-    opacity: 0
-  }
-
-  to {
-    transform: scale(1) rotate(0);
-    opacity: 1
-  }
+  from { transform: scale(0) rotate(-180deg); opacity: 0 }
+  to { transform: scale(1) rotate(0); opacity: 1 }
 }
 
 .hero-icon::before,
@@ -386,15 +317,8 @@ body::before {
   animation: pulseRing 3s ease-out infinite
 }
 
-.hero-icon::before {
-  inset: -12px;
-  animation-delay: 0s
-}
-
-.hero-icon::after {
-  inset: -24px;
-  animation-delay: 1.5s
-}
+.hero-icon::before { inset: -12px; animation-delay: 0s }
+.hero-icon::after { inset: -24px; animation-delay: 1.5s }
 
 .hero-icon-ring {
   position: absolute;
@@ -406,15 +330,8 @@ body::before {
 }
 
 @keyframes pulseRing {
-  0% {
-    transform: scale(.85);
-    opacity: .6
-  }
-
-  100% {
-    transform: scale(1.3);
-    opacity: 0
-  }
+  0% { transform: scale(.85); opacity: .6 }
+  100% { transform: scale(1.3); opacity: 0 }
 }
 
 .hero-icon svg {
@@ -422,15 +339,8 @@ body::before {
 }
 
 @keyframes iconFloat {
-
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg)
-  }
-
-  50% {
-    transform: translateY(-4px) rotate(3deg)
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg) }
+  50% { transform: translateY(-4px) rotate(3deg) }
 }
 
 .hero-title {
@@ -448,23 +358,12 @@ body::before {
 }
 
 @keyframes shimmer {
-  to {
-    background-position: 200% center
-  }
+  to { background-position: 200% center }
 }
 
 @keyframes heroTextEntry {
-  from {
-    transform: translateY(40px);
-    opacity: 0;
-    filter: blur(10px)
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-    filter: blur(0)
-  }
+  from { transform: translateY(40px); opacity: 0; filter: blur(10px) }
+  to { transform: translateY(0); opacity: 1; filter: blur(0) }
 }
 
 .hero-sub {
@@ -476,9 +375,7 @@ body::before {
   animation: heroTextEntry 1s cubic-bezier(.16, 1, .3, 1) .6s both
 }
 
-.hero-sub strong {
-  color: var(--text)
-}
+.hero-sub strong { color: var(--text) }
 
 .hero-cta {
   position: relative;
@@ -501,15 +398,8 @@ body::before {
 }
 
 @keyframes ctaGlow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 0 rgba(0, 229, 255, 0)
-  }
-
-  50% {
-    box-shadow: 0 0 30px rgba(0, 229, 255, .2), 0 0 60px rgba(0, 229, 255, .05)
-  }
+  0%, 100% { box-shadow: 0 0 0 rgba(0, 229, 255, 0) }
+  50% { box-shadow: 0 0 30px rgba(0, 229, 255, .2), 0 0 60px rgba(0, 229, 255, .05) }
 }
 
 .hero-cta::before {
@@ -521,9 +411,7 @@ body::before {
   transition: transform .6s
 }
 
-.hero-cta:hover::before {
-  transform: translateX(100%)
-}
+.hero-cta:hover::before { transform: translateX(100%) }
 
 .hero-cta:hover {
   border-color: var(--cyan);
@@ -532,13 +420,8 @@ body::before {
   transform: translateY(-2px) scale(1.03)
 }
 
-.hero-cta svg {
-  transition: transform .3s
-}
-
-.hero-cta:hover svg {
-  transform: translateX(3px) scale(1.1)
-}
+.hero-cta svg { transition: transform .3s }
+.hero-cta:hover svg { transform: translateX(3px) scale(1.1) }
 
 .hero-float {
   position: absolute;
@@ -554,71 +437,27 @@ body::before {
   white-space: nowrap
 }
 
-.hero-float-1 {
-  top: 22%;
-  left: 8%;
-  animation: float1 8s ease-in-out infinite, heroTextEntry 1s .9s both
-}
-
-.hero-float-2 {
-  top: 30%;
-  right: 6%;
-  animation: float2 9s ease-in-out infinite, heroTextEntry 1s 1.1s both
-}
-
-.hero-float-3 {
-  bottom: 22%;
-  left: 12%;
-  animation: float3 7s ease-in-out infinite, heroTextEntry 1s 1.3s both
-}
-
-.hero-float-4 {
-  bottom: 28%;
-  right: 10%;
-  animation: float1 10s ease-in-out 1s infinite, heroTextEntry 1s 1.5s both
-}
+.hero-float-1 { top: 22%; left: 8%; animation: float1 8s ease-in-out infinite, heroTextEntry 1s .9s both }
+.hero-float-2 { top: 30%; right: 6%; animation: float2 9s ease-in-out infinite, heroTextEntry 1s 1.1s both }
+.hero-float-3 { bottom: 22%; left: 12%; animation: float3 7s ease-in-out infinite, heroTextEntry 1s 1.3s both }
+.hero-float-4 { bottom: 28%; right: 10%; animation: float1 10s ease-in-out 1s infinite, heroTextEntry 1s 1.5s both }
 
 @keyframes float1 {
-
-  0%,
-  100% {
-    transform: translateY(0) rotate(-1deg)
-  }
-
-  50% {
-    transform: translateY(-15px) rotate(1deg)
-  }
+  0%, 100% { transform: translateY(0) rotate(-1deg) }
+  50% { transform: translateY(-15px) rotate(1deg) }
 }
 
 @keyframes float2 {
-
-  0%,
-  100% {
-    transform: translateY(0) rotate(1deg)
-  }
-
-  50% {
-    transform: translateY(-12px) rotate(-1.5deg)
-  }
+  0%, 100% { transform: translateY(0) rotate(1deg) }
+  50% { transform: translateY(-12px) rotate(-1.5deg) }
 }
 
 @keyframes float3 {
-
-  0%,
-  100% {
-    transform: translateY(0) rotate(.5deg)
-  }
-
-  50% {
-    transform: translateY(-10px) rotate(-1deg)
-  }
+  0%, 100% { transform: translateY(0) rotate(.5deg) }
+  50% { transform: translateY(-10px) rotate(-1deg) }
 }
 
-@media(max-width:768px) {
-  .hero-float {
-    display: none
-  }
-}
+@media(max-width:768px) { .hero-float { display: none } }
 
 .scroll-hint {
   position: absolute;
@@ -635,32 +474,13 @@ body::before {
 }
 
 @keyframes scrollBounce {
-
-  0%,
-  100% {
-    transform: translateY(0)
-  }
-
-  50% {
-    transform: translateY(8px)
-  }
+  0%, 100% { transform: translateY(0) }
+  50% { transform: translateY(8px) }
 }
 
-@keyframes fadeInLate {
-  from {
-    opacity: 0
-  }
+@keyframes fadeInLate { from { opacity: 0 } to { opacity: 1 } }
 
-  to {
-    opacity: 1
-  }
-}
-
-.section {
-  padding: 80px 0;
-  position: relative
-}
-
+.section { padding: 80px 0; position: relative }
 .section-label {
   font-family: 'IBM Plex Mono', monospace;
   font-size: .65rem;
@@ -681,9 +501,7 @@ body::before {
   transition: width .6s .2s
 }
 
-.reveal.visible .section-label::before {
-  width: 24px
-}
+.reveal.visible .section-label::before { width: 24px }
 
 .section-title {
   font-family: 'Syne', sans-serif;
@@ -724,11 +542,7 @@ body::before {
   animation: dividerSlide 4s linear infinite
 }
 
-@keyframes dividerSlide {
-  to {
-    left: 100%
-  }
-}
+@keyframes dividerSlide { to { left: 100% } }
 
 .tracks-grid {
   display: grid;
@@ -736,11 +550,7 @@ body::before {
   gap: 16px
 }
 
-@media(max-width:640px) {
-  .tracks-grid {
-    grid-template-columns: 1fr
-  }
-}
+@media(max-width:640px) { .tracks-grid { grid-template-columns: 1fr } }
 
 .track-card {
   position: relative;
@@ -778,9 +588,7 @@ body::before {
   filter: blur(2px)
 }
 
-.track-card:hover::after {
-  opacity: .4
-}
+.track-card:hover::after { opacity: .4 }
 
 .track-card:hover {
   transform: translateY(-8px);
@@ -788,9 +596,7 @@ body::before {
   box-shadow: 0 25px 70px rgba(0, 0, 0, .35), 0 0 40px rgba(0, 229, 255, .08)
 }
 
-.track-card:hover::before {
-  opacity: 1
-}
+.track-card:hover::before { opacity: 1 }
 
 .track-card .tc-shimmer {
   position: absolute;
@@ -811,9 +617,7 @@ body::before {
   transition: left .6s
 }
 
-.track-card:hover .tc-shimmer::after {
-  left: 150%
-}
+.track-card:hover .tc-shimmer::after { left: 150% }
 
 .tc-icon {
   width: 44px;
@@ -832,13 +636,8 @@ body::before {
   box-shadow: 0 0 20px rgba(0, 229, 255, .15)
 }
 
-.tc-icon svg {
-  transition: transform .3s
-}
-
-.track-card:hover .tc-icon svg {
-  transform: scale(1.1)
-}
+.tc-icon svg { transition: transform .3s }
+.track-card:hover .tc-icon svg { transform: scale(1.1) }
 
 .tc-name {
   font-family: 'Syne', sans-serif;
@@ -848,9 +647,7 @@ body::before {
   transition: letter-spacing .3s
 }
 
-.track-card:hover .tc-name {
-  letter-spacing: .02em
-}
+.track-card:hover .tc-name { letter-spacing: .02em }
 
 .tc-desc {
   font-size: .8rem;
@@ -860,11 +657,7 @@ body::before {
   margin-bottom: 14px
 }
 
-.tc-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px
-}
+.tc-tags { display: flex; flex-wrap: wrap; gap: 5px }
 
 .tc-tag {
   font-family: 'IBM Plex Mono', monospace;
@@ -882,49 +675,17 @@ body::before {
   color: var(--text)
 }
 
-.tc-se .tc-icon {
-  background: rgba(0, 229, 255, .08)
-}
+.tc-se .tc-icon { background: rgba(0, 229, 255, .08) }
+.tc-se .tc-name { color: var(--cyan) }
+.tc-ds .tc-icon { background: rgba(56, 189, 248, .08) }
+.tc-ds .tc-name { color: var(--blue) }
+.tc-is .tc-icon { background: rgba(129, 140, 248, .08) }
+.tc-is .tc-name { color: var(--indigo) }
+.tc-ns .tc-icon { background: rgba(52, 211, 153, .08) }
+.tc-ns .tc-name { color: var(--green) }
 
-.tc-se .tc-name {
-  color: var(--cyan)
-}
-
-.tc-ds .tc-icon {
-  background: rgba(56, 189, 248, .08)
-}
-
-.tc-ds .tc-name {
-  color: var(--blue)
-}
-
-.tc-is .tc-icon {
-  background: rgba(129, 140, 248, .08)
-}
-
-.tc-is .tc-name {
-  color: var(--indigo)
-}
-
-.tc-ns .tc-icon {
-  background: rgba(52, 211, 153, .08)
-}
-
-.tc-ns .tc-name {
-  color: var(--green)
-}
-
-.steps-row {
-  display: flex;
-  gap: 20px;
-  position: relative
-}
-
-@media(max-width:640px) {
-  .steps-row {
-    flex-direction: column
-  }
-}
+.steps-row { display: flex; gap: 20px; position: relative }
+@media(max-width:640px) { .steps-row { flex-direction: column } }
 
 .step-card {
   flex: 1;
@@ -951,15 +712,9 @@ body::before {
   transition: opacity .4s
 }
 
-.step-card:hover::before {
-  opacity: 1
-}
+.step-card:hover::before { opacity: 1 }
 
-@keyframes stepSpin {
-  to {
-    transform: rotate(360deg)
-  }
-}
+@keyframes stepSpin { to { transform: rotate(360deg) } }
 
 .step-card:hover {
   border-color: rgba(0, 229, 255, .3);
@@ -979,10 +734,7 @@ body::before {
   transition: transform .3s
 }
 
-.step-card:hover .step-num {
-  transform: scale(1.15)
-}
-
+.step-card:hover .step-num { transform: scale(1.15) }
 .step-name {
   font-family: 'Syne', sans-serif;
   font-size: .95rem;
@@ -1017,31 +769,13 @@ body::before {
 }
 
 @keyframes connectorPulse {
-
-  0%,
-  100% {
-    transform: translateX(-100%);
-    opacity: 0
-  }
-
-  50% {
-    transform: translateX(0);
-    opacity: 1
-  }
+  0%, 100% { transform: translateX(-100%); opacity: 0 }
+  50% { transform: translateX(0); opacity: 1 }
 }
 
-@media(max-width:640px) {
-  .step-connector {
-    display: none
-  }
-}
+@media(max-width:640px) { .step-connector { display: none } }
 
-.stats-row {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center
-}
+.stats-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center }
 
 .stat-card {
   flex: 1;
@@ -1069,9 +803,7 @@ body::before {
   transform-origin: left
 }
 
-.stat-card:hover::after {
-  transform: scaleX(1)
-}
+.stat-card:hover::after { transform: scaleX(1) }
 
 .stat-card:hover {
   border-color: rgba(0, 229, 255, .25);
@@ -1090,22 +822,10 @@ body::before {
   transition: transform .3s
 }
 
-.stat-card:hover .stat-num {
-  transform: scale(1.1)
-}
+.stat-card:hover .stat-num { transform: scale(1.1) }
+.stat-label { font-size: .75rem; font-weight: 300; color: var(--muted); margin-top: 6px }
 
-.stat-label {
-  font-size: .75rem;
-  font-weight: 300;
-  color: var(--muted);
-  margin-top: 6px
-}
-
-.cta-section {
-  text-align: center;
-  padding: 80px 0 100px;
-  position: relative
-}
+.cta-section { text-align: center; padding: 80px 0 100px; position: relative }
 
 .cta-box {
   position: relative;
@@ -1117,11 +837,7 @@ body::before {
   transition: all .5s
 }
 
-.cta-box:hover {
-  border-color: rgba(0, 229, 255, .35);
-  box-shadow: 0 0 60px rgba(0, 229, 255, .08)
-}
-
+.cta-box:hover { border-color: rgba(0, 229, 255, .35); box-shadow: 0 0 60px rgba(0, 229, 255, .08) }
 .cta-box::before {
   content: '';
   position: absolute;
@@ -1139,23 +855,10 @@ body::before {
   animation: ctaRotate 6s linear infinite
 }
 
-@keyframes ctaRotate {
-  to {
-    --cta-angle: 360deg
-  }
-}
+@keyframes ctaRotate { to { --cta-angle: 360deg } }
 
-@property --cta-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false
-}
-
-@property --card-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false
-}
+@property --cta-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false }
+@property --card-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false }
 
 .cta-title {
   font-family: 'Syne', sans-serif;
@@ -1174,69 +877,19 @@ body::before {
   position: relative
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all .8s cubic-bezier(.16, 1, .3, 1)
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0)
-}
-
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: all .8s cubic-bezier(.16, 1, .3, 1)
-}
-
-.reveal-left.visible {
-  opacity: 1;
-  transform: translateX(0)
-}
-
-.reveal-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: all .8s cubic-bezier(.16, 1, .3, 1)
-}
-
-.reveal-right.visible {
-  opacity: 1;
-  transform: translateX(0)
-}
-
-.reveal-scale {
-  opacity: 0;
-  transform: scale(.85);
-  transition: all .8s cubic-bezier(.16, 1, .3, 1)
-}
-
-.reveal-scale.visible {
-  opacity: 1;
-  transform: scale(1)
-}
-
-.reveal-delay-1 {
-  transition-delay: .1s
-}
-
-.reveal-delay-2 {
-  transition-delay: .2s
-}
-
-.reveal-delay-3 {
-  transition-delay: .3s
-}
-
-.reveal-delay-4 {
-  transition-delay: .4s
-}
-
-.reveal-delay-5 {
-  transition-delay: .5s
-}
+.reveal { opacity: 0; transform: translateY(40px); transition: all .8s cubic-bezier(.16, 1, .3, 1) }
+.reveal.visible { opacity: 1; transform: translateY(0) }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: all .8s cubic-bezier(.16, 1, .3, 1) }
+.reveal-left.visible { opacity: 1; transform: translateX(0) }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: all .8s cubic-bezier(.16, 1, .3, 1) }
+.reveal-right.visible { opacity: 1; transform: translateX(0) }
+.reveal-scale { opacity: 0; transform: scale(.85); transition: all .8s cubic-bezier(.16, 1, .3, 1) }
+.reveal-scale.visible { opacity: 1; transform: scale(1) }
+.reveal-delay-1 { transition-delay: .1s }
+.reveal-delay-2 { transition-delay: .2s }
+.reveal-delay-3 { transition-delay: .3s }
+.reveal-delay-4 { transition-delay: .4s }
+.reveal-delay-5 { transition-delay: .5s }
 
 .quiz-mode {
   position: relative;
@@ -1248,13 +901,8 @@ body::before {
   grid-template-rows: 56px 2px 1fr 76px
 }
 
-.quiz-mode.active {
-  display: grid
-}
-
-.landing.hidden {
-  display: none
-}
+.quiz-mode.active { display: grid }
+.landing.hidden { display: none }
 
 .quiz-header {
   display: flex;
@@ -1283,22 +931,9 @@ body::before {
   background: transparent
 }
 
-.back-btn:hover {
-  color: var(--cyan);
-  border-color: rgba(0, 229, 255, .3)
-}
-
-.hdr-title {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .75rem;
-  color: var(--dim);
-  letter-spacing: .04em
-}
-
-.prog-track {
-  background: var(--border);
-  overflow: hidden
-}
+.back-btn:hover { color: var(--cyan); border-color: rgba(0, 229, 255, .3) }
+.hdr-title { font-family: 'IBM Plex Mono', monospace; font-size: .75rem; color: var(--dim); letter-spacing: .04em }
+.prog-track { background: var(--border); overflow: hidden }
 
 .prog-fill {
   height: 100%;
@@ -1317,22 +952,9 @@ body::before {
   scroll-behavior: smooth
 }
 
-@media(max-width:640px) {
-  .quiz-main {
-    padding: 0 16px
-  }
+@media(max-width:640px) { .quiz-main { padding: 0 16px } .quiz-mode { max-width: 100% } }
 
-  .quiz-mode {
-    max-width: 100%
-  }
-}
-
-#messages {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding: 22px 0 8px
-}
+#messages { display: flex; flex-direction: column; gap: 18px; padding: 22px 0 8px }
 
 .msg-ai {
   display: flex;
@@ -1342,12 +964,7 @@ body::before {
   transform: translateY(10px)
 }
 
-@keyframes mIn {
-  to {
-    opacity: 1;
-    transform: translateY(0)
-  }
-}
+@keyframes mIn { to { opacity: 1; transform: translateY(0) } }
 
 .av {
   width: 30px;
@@ -1363,21 +980,11 @@ body::before {
 }
 
 @keyframes avGlow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 8px rgba(0, 229, 255, .15)
-  }
-
-  50% {
-    box-shadow: 0 0 18px rgba(0, 229, 255, .45)
-  }
+  0%, 100% { box-shadow: 0 0 8px rgba(0, 229, 255, .15) }
+  50% { box-shadow: 0 0 18px rgba(0, 229, 255, .45) }
 }
 
-.ab {
-  max-width: 78%
-}
-
+.ab { max-width: 78% }
 .aname {
   font-family: 'IBM Plex Mono', monospace;
   font-size: .6rem;
@@ -1429,12 +1036,7 @@ body::before {
   line-height: 1.6
 }
 
-.dots {
-  display: inline-flex;
-  gap: 4px;
-  padding: 2px 0
-}
-
+.dots { display: inline-flex; gap: 4px; padding: 2px 0 }
 .dots span {
   width: 5px;
   height: 5px;
@@ -1444,26 +1046,12 @@ body::before {
   animation: td .8s ease-in-out infinite
 }
 
-.dots span:nth-child(2) {
-  animation-delay: .15s
-}
-
-.dots span:nth-child(3) {
-  animation-delay: .3s
-}
+.dots span:nth-child(2) { animation-delay: .15s }
+.dots span:nth-child(3) { animation-delay: .3s }
 
 @keyframes td {
-
-  0%,
-  100% {
-    transform: scale(.75);
-    opacity: .25
-  }
-
-  50% {
-    transform: scale(1.15);
-    opacity: 1
-  }
+  0%, 100% { transform: scale(.75); opacity: .25 }
+  50% { transform: scale(1.15); opacity: 1 }
 }
 
 .stag {
@@ -1480,12 +1068,7 @@ body::before {
   margin-bottom: 10px
 }
 
-.opts {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  margin-top: 10px
-}
+.opts { display: flex; flex-direction: column; gap: 7px; margin-top: 10px }
 
 .opt {
   position: relative;
@@ -1520,33 +1103,11 @@ body::before {
   border-radius: 0 2px 2px 0
 }
 
-.opt:hover {
-  border-color: rgba(0, 229, 255, .32);
-  color: var(--text);
-  background: rgba(0, 229, 255, .04)
-}
-
-.opt:hover::before {
-  transform: scaleY(1)
-}
-
-.opt.sel {
-  border-color: rgba(0, 229, 255, .48);
-  color: var(--cyan);
-  background: rgba(0, 229, 255, .07);
-  box-shadow: 0 0 18px rgba(0, 229, 255, .08)
-}
-
-.opt.sel::before,
-.opt.sel:hover::before {
-  transform: scaleY(1)
-}
-
-.opt.dead {
-  opacity: .35;
-  pointer-events: none;
-  cursor: default
-}
+.opt:hover { border-color: rgba(0, 229, 255, .32); color: var(--text); background: rgba(0, 229, 255, .04) }
+.opt:hover::before { transform: scaleY(1) }
+.opt.sel { border-color: rgba(0, 229, 255, .48); color: var(--cyan); background: rgba(0, 229, 255, .07); box-shadow: 0 0 18px rgba(0, 229, 255, .08) }
+.opt.sel::before, .opt.sel:hover::before { transform: scaleY(1) }
+.opt.dead { opacity: .35; pointer-events: none; cursor: default }
 
 .olabel {
   width: 26px;
@@ -1564,11 +1125,7 @@ body::before {
   transition: all .22s
 }
 
-.opt.sel .olabel,
-.opt:hover .olabel {
-  background: rgba(0, 229, 255, .16);
-  border-color: rgba(0, 229, 255, .38)
-}
+.opt.sel .olabel, .opt:hover .olabel { background: rgba(0, 229, 255, .16); border-color: rgba(0, 229, 255, .38) }
 
 .res-box {
   background: rgba(0, 229, 255, .03);
@@ -1578,58 +1135,14 @@ body::before {
   margin-top: 12px
 }
 
-.res-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 16px
-}
-
-.rtrack {
-  margin-bottom: 14px
-}
-
-.rrow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 7px
-}
-
-.rname {
-  font-size: .88rem;
-  font-weight: 500;
-  color: var(--text)
-}
-
-.rpct {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .8rem;
-  font-weight: 600
-}
-
-.rbar {
-  height: 4px;
-  background: var(--border);
-  border-radius: 2px;
-  overflow: hidden;
-  margin-bottom: 6px
-}
-
-.rfill {
-  height: 100%;
-  border-radius: 2px;
-  width: 0%;
-  transition: width 1.1s cubic-bezier(.16, 1, .3, 1)
-}
-
-.rtags {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap
-}
-
+.res-title { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 16px }
+.rtrack { margin-bottom: 14px }
+.rrow { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px }
+.rname { font-size: .88rem; font-weight: 500; color: var(--text) }
+.rpct { font-family: 'IBM Plex Mono', monospace; font-size: .8rem; font-weight: 600 }
+.rbar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin-bottom: 6px }
+.rfill { height: 100%; border-radius: 2px; width: 0%; transition: width 1.1s cubic-bezier(.16, 1, .3, 1) }
+.rtags { display: flex; gap: 5px; flex-wrap: wrap }
 .rtag {
   font-family: 'IBM Plex Mono', monospace;
   font-size: .58rem;
@@ -1652,12 +1165,7 @@ body::before {
   line-height: 1.65
 }
 
-.res-actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 16px
-}
+.res-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px }
 
 .ra {
   display: inline-flex;
@@ -1676,21 +1184,9 @@ body::before {
   text-decoration: none
 }
 
-.ra:hover {
-  border-color: rgba(0, 229, 255, .3);
-  color: var(--cyan)
-}
-
-.ra.pr {
-  background: rgba(0, 229, 255, .07);
-  border-color: rgba(0, 229, 255, .32);
-  color: var(--cyan)
-}
-
-.ra.pr:hover {
-  border-color: var(--cyan);
-  box-shadow: 0 0 16px rgba(0, 229, 255, .18)
-}
+.ra:hover { border-color: rgba(0, 229, 255, .3); color: var(--cyan) }
+.ra.pr { background: rgba(0, 229, 255, .07); border-color: rgba(0, 229, 255, .32); color: var(--cyan) }
+.ra.pr:hover { border-color: var(--cyan); box-shadow: 0 0 16px rgba(0, 229, 255, .18) }
 
 .quiz-footer {
   border-top: 1px solid var(--border);
@@ -1702,11 +1198,7 @@ body::before {
   gap: 12px
 }
 
-@media(max-width:640px) {
-  .quiz-footer {
-    padding: 10px 16px
-  }
-}
+@media(max-width:640px) { .quiz-footer { padding: 10px 16px } }
 
 .step-ctr {
   font-family: 'IBM Plex Mono', monospace;
@@ -1719,11 +1211,7 @@ body::before {
   white-space: nowrap
 }
 
-.step-ctr .sn {
-  color: var(--cyan);
-  font-size: .78rem;
-  font-weight: 600
-}
+.step-ctr .sn { color: var(--cyan); font-size: .78rem; font-weight: 600 }
 
 .inp-wrap {
   flex: 1;
@@ -1736,19 +1224,8 @@ body::before {
   transition: border-color .2s, box-shadow .2s
 }
 
-.inp-wrap:focus-within {
-  border-color: rgba(0, 229, 255, .38);
-  box-shadow: 0 0 18px rgba(0, 229, 255, .09)
-}
-
-.inp-pre {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .78rem;
-  color: var(--cyan);
-  padding: 11px 10px 11px 15px;
-  user-select: none;
-  flex-shrink: 0
-}
+.inp-wrap:focus-within { border-color: rgba(0, 229, 255, .38); box-shadow: 0 0 18px rgba(0, 229, 255, .09) }
+.inp-pre { font-family: 'IBM Plex Mono', monospace; font-size: .78rem; color: var(--cyan); padding: 11px 10px 11px 15px; user-select: none; flex-shrink: 0 }
 
 #txt-inp {
   flex: 1;
@@ -1763,9 +1240,7 @@ body::before {
   caret-color: var(--cyan)
 }
 
-#txt-inp::placeholder {
-  color: var(--dim)
-}
+#txt-inp::placeholder { color: var(--dim) }
 
 .send-btn {
   padding: 11px 14px;
@@ -1778,14 +1253,8 @@ body::before {
   align-items: center
 }
 
-.send-btn:hover:not(:disabled) {
-  color: var(--cyan)
-}
-
-.send-btn:disabled {
-  opacity: .28;
-  cursor: default
-}
+.send-btn:hover:not(:disabled) { color: var(--cyan) }
+.send-btn:disabled { opacity: .28; cursor: default }
 
 .landing-footer {
   text-align: center;
@@ -1797,19 +1266,9 @@ body::before {
   letter-spacing: .05em
 }
 
-.parallax-layer {
-  transition: transform .1s linear;
-  will-change: transform
-}
-
-.magnetic {
-  transition: transform .3s cubic-bezier(.16, 1, .3, 1)
-}
-
-.ripple {
-  position: relative;
-  overflow: hidden
-}
+.parallax-layer { transition: transform .1s linear; will-change: transform }
+.magnetic { transition: transform .3s cubic-bezier(.16, 1, .3, 1) }
+.ripple { position: relative; overflow: hidden }
 
 .ripple-wave {
   position: absolute;
@@ -1820,12 +1279,7 @@ body::before {
   pointer-events: none
 }
 
-@keyframes rippleAnim {
-  to {
-    transform: scale(4);
-    opacity: 0
-  }
-}
+@keyframes rippleAnim { to { transform: scale(4); opacity: 0 } }
 
 .typewriter-cursor {
   display: inline-block;
@@ -1837,24 +1291,9 @@ body::before {
   vertical-align: text-bottom
 }
 
-@keyframes blink {
-
-  0%,
-  100% {
-    opacity: 1
-  }
-
-  50% {
-    opacity: 0
-  }
-}
-
-.glitch-text {
-  position: relative
-}
-
-.glitch-text::before,
-.glitch-text::after {
+@keyframes blink { 0%, 100% { opacity: 1 } 50% { opacity: 0 } }
+.glitch-text { position: relative }
+.glitch-text::before, .glitch-text::after {
   content: attr(data-text);
   position: absolute;
   top: 0;
@@ -1867,42 +1306,17 @@ body::before {
   pointer-events: none
 }
 
-.glitch-text::before {
-  background: linear-gradient(135deg, #fff, var(--cyan));
-  animation: glitch1 5s infinite
-}
-
-.glitch-text::after {
-  background: linear-gradient(135deg, var(--indigo), #fff);
-  animation: glitch2 5s infinite
-}
+.glitch-text::before { background: linear-gradient(135deg, #fff, var(--cyan)); animation: glitch1 5s infinite }
+.glitch-text::after { background: linear-gradient(135deg, var(--indigo), #fff); animation: glitch2 5s infinite }
 
 @keyframes glitch1 {
-
-  0%,
-  95%,
-  100% {
-    clip-path: inset(0)
-  }
-
-  96% {
-    clip-path: inset(20% 0 60% 0);
-    transform: translate(-2px)
-  }
+  0%, 95%, 100% { clip-path: inset(0) }
+  96% { clip-path: inset(20% 0 60% 0); transform: translate(-2px) }
 }
 
 @keyframes glitch2 {
-
-  0%,
-  95%,
-  100% {
-    clip-path: inset(0)
-  }
-
-  97% {
-    clip-path: inset(50% 0 20% 0);
-    transform: translate(2px)
-  }
+  0%, 95%, 100% { clip-path: inset(0) }
+  97% { clip-path: inset(50% 0 20% 0); transform: translate(2px) }
 }
 
 /* Likert Scale and Input Styles */
@@ -1949,24 +1363,9 @@ input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+"""
 
-.skip-btn {
-  display: block;
-  width: 100%;
-  margin-top: 15px;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--muted);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.75rem;
-  cursor: pointer;
-  transition: all 0.2s;
-}
+with open(style_path, 'w', encoding='utf-8') as f:
+    f.write(css_content)
 
-.skip-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text);
-  border-color: var(--dim);
-}
+print(f"Successfully rebuilt {style_path}")

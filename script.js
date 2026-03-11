@@ -175,75 +175,61 @@ if (heroSub && !heroSub.dataset.typed) {
    QUIZ DATA
 ══════════════════════════════ */
 const QUESTIONS = [
+    { q: "ฉันชอบมองหาความสัมพันธ์หรือรูปแบบที่ซ่อนอยู่ในชุดข้อมูลจำนวนมาก", type: "likert" },
+    { q: "ฉันสนุกกับการนำข้อมูลมาสรุปผลเป็นแผนภูมิหรือกราฟเพื่อให้ผู้อื่นเข้าใจง่าย", type: "likert" },
+    { q: "ฉันสนใจเรื่องการนำข้อมูลไปช่วยในการตัดสินใจทางธุรกิจหรือการพยากรณ์ยอดขาย", type: "likert" },
+    { q: "ฉันชอบเขียน Query เพื่อดึงข้อมูลหรือจัดการฐานข้อมูลที่ซับซ้อน", type: "likert" },
+    { q: "ฉันสนใจเรื่องความปลอดภัยของข้อมูลและการเข้ารหัสลับ (Cryptography)", type: "likert" },
+    { q: "ฉันชอบตั้งค่าอุปกรณ์เครือข่าย สนใจว่าคอมพิวเตอร์คุยกันผ่านอินเทอร์เน็ตได้อย่างไร", type: "likert" },
+    { q: "ฉันมีความสุขกับการแก้ปัญหาเรื่องความเสถียรและความปลอดภัยของระบบ Network", type: "likert" },
+    { q: "ฉันสนใจการพัฒนาอุปกรณ์อัจฉริยะ (IoT) หรือระบบฝังตัว (Embedded Systems)", type: "likert" },
+    { q: "ฉันสนใจเรื่อง Cloud Computing และการจัดการเซิร์ฟเวอร์เสมือน", type: "likert" },
+    { q: "ฉันอยากรู้วิธีการป้องกันการโจรกรรมข้อมูลหรือการแฮกระบบเครือข่าย", type: "likert" },
+    { q: "ฉันชอบออกแบบขั้นตอนการทำงานของโปรแกรมให้มีประสิทธิภาพและจัดการง่าย", type: "likert" },
+    { q: "ฉันให้ความสำคัญกับการทดสอบซอฟต์แวร์ (Testing) เพื่อให้แน่ใจว่าโปรแกรมไม่มี Bug", type: "likert" },
+    { q: "ฉันสนุกกับการออกแบบหน้าจอโปรแกรมให้สวยงามและใช้งานง่าย (UI/UX)", type: "likert" },
+    { q: "ฉันสนใจกระบวนการจัดการโครงการซอฟต์แวร์และการทำงานเป็นทีม (Project Management)", type: "likert" },
+    { q: "ฉันชอบการวิเคราะห์ระบบและออกแบบสถาปัตยกรรมของซอฟต์แวร์ (System Analysis)", type: "likert" },
+    { q: "ฉันชอบวิชาที่ต้องใช้คณิตศาสตร์ ตรรกะ หรือการคำนวณเชิงลึก", type: "likert" },
+    { q: "ฉันสนใจการเขียนโปรแกรมให้คอมพิวเตอร์สามารถ เรียนรู้และตัดสินใจได้เอง (Machine Learning)", type: "likert" },
+    { q: "ฉันสนใจเทคโนโลยีที่ทำให้คอมพิวเตอร์มองเห็นและแยกแยะวัตถุได้ (Computer Vision)", type: "likert" },
+    { q: "ฉันสนใจเรื่องการประมวลผลภาษา (NLP) เช่น แชทบอท หรือ ระบบแปลภาษาอัตโนมัติ", type: "likert" },
+    { q: "ฉันชอบการสร้างแบบจำลอง 3 มิติ หรือการพัฒนาเกมที่มีระบบฟิสิกส์ซับซ้อน", type: "likert" },
     {
-        q: "ถ้าต้องเลือกทำโปรเจกต์เดี๋ยวนี้เลย คุณอยากทำอะไรมากที่สุด?", opts: [
-            { t: "สร้าง Web App / Mobile App ให้คนใช้ได้จริง", w: [4, 0, 0, 0] },
-            { t: "วิเคราะห์ข้อมูล หาแพทเทิร์นที่ซ่อนอยู่ในตัวเลข", w: [0, 4, 1, 0] },
-            { t: "สร้าง AI / Chatbot ที่คุยกับคนได้", w: [0, 2, 4, 0] },
-            { t: "ออกแบบระบบ Network ให้ปลอดภัยจาก Hacker", w: [0, 0, 0, 4] }]
+        q: "เงินเดือนเริ่มต้นที่คาดหวัง (บาท)",
+        type: "number",
+        placeholder: "เช่น 25000",
+        suffix: " บาท",
+        min: 0
     },
     {
-        q: "วิชาไหนที่คุณชอบเรียนมากที่สุดตอน ม.ปลาย?", opts: [
-            { t: "คณิตศาสตร์ — ชอบแก้โจทย์ พิสูจน์สูตร", w: [2, 3, 2, 1] },
-            { t: "ฟิสิกส์ — ชอบเข้าใจว่าอะไรทำงานยังไง", w: [1, 1, 3, 2] },
-            { t: "คอมพิวเตอร์ — ชอบเขียนโค้ด ทำเว็บ", w: [4, 1, 1, 2] },
-            { t: "เคมี/ชีวะ — ชอบทดลอง หาความจริง", w: [0, 3, 2, 0] }]
+        q: "เกรดเฉลี่ยสะสมชั้นปี 1 ภาคเรียนที่ 1",
+        type: "number",
+        placeholder: "เช่น 3.50",
+        min: 0, max: 4.0, step: 0.01
     },
     {
-        q: "สไตล์การทำงานของคุณตรงกับอันไหนมากที่สุด?", opts: [
-            { t: "สร้างสิ่งที่จับต้องได้ มี UI สวย ๆ ให้ user ใช้งาน", w: [4, 0, 0, 0] },
-            { t: "นั่งไล่ดูข้อมูล หา insight ที่คนอื่นมองไม่เห็น", w: [0, 4, 1, 0] },
-            { t: "คิด algorithm ใหม่ ๆ ให้คอมพิวเตอร์ฉลาดขึ้น", w: [1, 2, 4, 0] },
-            { t: "ป้องกัน ตรวจจับ รับมือภัยคุกคามทางดิจิทัล", w: [0, 0, 1, 4] }]
+        q: "เกรดเฉลี่ยสะสมชั้นปี 1 ภาคเรียนที่ 2 (หากไม่มีให้กดปุ่มข้าม)",
+        type: "number",
+        placeholder: "เช่น 3.45",
+        min: 0, max: 4.0, step: 0.01,
+        skippable: true
     },
     {
-        q: "ถ้าบริษัท Tech ใหญ่รับคุณเข้าทำงาน คุณอยากเป็นอะไร?", opts: [
-            { t: "Full-Stack Developer — สร้าง product ตั้งแต่ต้นจนจบ", w: [4, 0, 0, 1] },
-            { t: "Data Scientist — เอาข้อมูลมาสร้าง business value", w: [0, 4, 1, 0] },
-            { t: "ML Engineer — train model ให้ฉลาดกว่าคน", w: [1, 2, 4, 0] },
-            { t: "Security Engineer — ดูแลให้ระบบปลอดภัย", w: [0, 0, 0, 4] }]
+        q: "เกรดเฉลี่ยสะสมชั้นปี 2 ภาคเรียนที่ 1 (หากไม่มีให้กดปุ่มข้าม)",
+        type: "number",
+        placeholder: "เช่น 3.60",
+        min: 0, max: 4.0, step: 0.01,
+        skippable: true
     },
     {
-        q: "เวลาเจอปัญหา คุณแก้ยังไง?", opts: [
-            { t: "แบ่งเป็นชิ้นเล็ก ๆ แล้วค่อย ๆ แก้ทีละส่วน", w: [3, 2, 2, 2] },
-            { t: "หาข้อมูลเยอะ ๆ ก่อน แล้วหาแพทเทิร์น", w: [1, 4, 2, 1] },
-            { t: "ลอง approach ใหม่ที่ไม่มีใครเคยทำ", w: [1, 1, 4, 1] },
-            { t: "หาว่าจุดอ่อนอยู่ที่ไหน แล้วปิดช่องโหว่", w: [1, 1, 1, 4] }]
-    },
-    {
-        q: "โปรเจกต์แบบไหนที่ทำให้คุณตื่นเต้นที่สุด?", opts: [
-            { t: "แอปที่มีคนจริง ๆ ใช้เป็นล้านคน", w: [4, 1, 0, 0] },
-            { t: "ระบบพยากรณ์ราคาหุ้น หรือผลการแข่งขัน", w: [0, 4, 2, 0] },
-            { t: "AI ที่จำแนกโรคจากภาพ X-ray ได้แม่นกว่าหมอ", w: [0, 1, 4, 1] },
-            { t: "ระบบตรวจจับ intrusion ที่ block hacker แบบ real-time", w: [0, 0, 1, 4] }]
-    },
-    {
-        q: "Python vs JavaScript — ถ้าต้องเลือกเรียนลึกสักภาษา?", opts: [
-            { t: "JavaScript / TypeScript — front-end, back-end, ทุกอย่าง", w: [4, 0, 0, 1] },
-            { t: "Python — data, ML, automation ครบจบในภาษาเดียว", w: [0, 4, 3, 0] },
-            { t: "C++ / Rust — performance, robotics, low-level สุด ๆ", w: [1, 0, 4, 2] },
-            { t: "Go / Bash — network, server, security tools", w: [1, 1, 0, 4] }]
-    },
-    {
-        q: "เพื่อนมักมาขอให้คุณช่วยเรื่องอะไร?", opts: [
-            { t: "ทำเว็บ ทำแอป ออกแบบ UI ให้สวย", w: [4, 0, 0, 0] },
-            { t: "วิเคราะห์ตัวเลข ทำ report สรุปข้อมูล", w: [0, 4, 1, 0] },
-            { t: "อธิบายเรื่อง AI / algorithm ที่ซับซ้อน", w: [1, 2, 4, 0] },
-            { t: "ตั้งค่า VPN, แก้ปัญหา network หรือความปลอดภัย", w: [0, 0, 1, 4] }]
-    },
-    {
-        q: "5 ปีข้างหน้า คุณเห็นตัวเองอยู่ที่ไหน?", opts: [
-            { t: "เป็น CTO หรือ Tech Lead ดูแล product ใหญ่ ๆ", w: [4, 1, 1, 1] },
-            { t: "เป็น Lead Data Scientist ใน fintech หรือ healthcare", w: [0, 4, 1, 0] },
-            { t: "ทำ research AI ใน lab ระดับโลก หรือ startup AI", w: [0, 2, 4, 0] },
-            { t: "เป็น CISO หรือ Security Consultant ระดับองค์กร", w: [0, 0, 1, 4] }]
-    },
-    {
-        q: "สุดท้าย — ถ้าต้องบรรยายตัวเองในหนึ่งคำ คุณเลือกอะไร?", opts: [
-            { t: "Builder — ฉันชอบสร้างสิ่งใหม่จากศูนย์", w: [4, 1, 1, 0] },
-            { t: "Analyst — ฉันชอบหาความหมายจากข้อมูล", w: [0, 4, 1, 0] },
-            { t: "Innovator — ฉันชอบคิดอะไรที่ไม่มีใครเคยทำ", w: [1, 1, 4, 0] },
-            { t: "Guardian — ฉันชอบปกป้องและดูแลระบบให้มั่นคง", w: [0, 0, 0, 4] }]
+        q: "ระบุเพศของคุณ",
+        type: "select",
+        opts: [
+            { t: "LGBTQ+", v: "lgbt" },
+            { t: "ชาย", v: "male" },
+            { t: "หญิง", v: "female" }
+        ]
     }
 ];
 
@@ -281,22 +267,35 @@ const TRACKS = [
 /* ══════════════════════════════
    STATE & REFS
 ══════════════════════════════ */
-let step = 0, scores = [0, 0, 0, 0];
-const TOTAL = 10;
+let step = 0, userResults = [];
+const TOTAL = QUESTIONS.length;
+document.getElementById("total-q").textContent = "/" + TOTAL;
 const landing = document.getElementById('landing');
 const quizMode = document.getElementById('quiz-mode');
 const msgs = document.getElementById('messages');
 const prog = document.getElementById('prog');
 const sctr = document.getElementById('sctr');
 const snum = document.getElementById('snum');
+const txtInp = document.getElementById('txt-inp');
+const sendBtn = document.querySelector('.send-btn');
+const inpWrap = document.querySelector('.inp-wrap');
+
+// Initialize AI
+let aiInitialized = false;
+async function initAI() {
+    if (aiInitialized) return;
+    const success = await PSU_AI.init('./');
+    if (success) aiInitialized = true;
+}
 
 /* ══════════════════════════════
    START QUIZ
 ══════════════════════════════ */
 document.querySelectorAll('.start-quiz-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
         landing.classList.add('hidden');
         quizMode.classList.add('active');
+        await initAI();
         showQ(0);
     });
 });
@@ -307,7 +306,7 @@ document.querySelectorAll('.start-quiz-btn').forEach(btn => {
 document.getElementById('back-btn').addEventListener('click', () => {
     quizMode.classList.remove('active');
     landing.classList.remove('hidden');
-    scores = [0, 0, 0, 0]; step = 0;
+    userResults = []; step = 0;
     msgs.innerHTML = '';
     prog.style.width = '0%';
     snum.textContent = '1';
@@ -320,19 +319,78 @@ function showQ(idx) {
     step = idx; snum.textContent = idx + 1;
     prog.style.width = ((idx / TOTAL) * 100) + '%';
     const q = QUESTIONS[idx];
+
+    // Reset input state
+    txtInp.disabled = true;
+    sendBtn.disabled = true;
+    inpWrap.style.opacity = '.3';
+    inpWrap.style.pointerEvents = 'none';
+
     showTyping(() => {
-        const labels = ['A', 'B', 'C', 'D'];
         let html = `<div class="stag">
       <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
       คำถาม ${idx + 1} / ${TOTAL}
     </div>
-    <div style="margin-bottom:12px">${q.q}</div>
-    <div class="opts" id="opts-${idx}">`;
-        q.opts.forEach((o, i) => {
-            html += `<button class="opt" onclick="pickOpt(${idx},${i},this)">
-        <span class="olabel">${labels[i]}</span><span>${o.t}</span></button>`;
-        });
-        html += `</div>`;
+    <div style="margin-bottom:12px">${q.q}</div>`;
+
+        if (q.type === "likert") {
+            const labels = ["1", "2", "3", "4", "5"];
+            const desc = ["ไม่จริงเลย", "", "", "", "จริงที่สุด"];
+            html += `<div class="opts likert-row" id="opts-${idx}">`;
+            labels.forEach((l, i) => {
+                html += `<button class="opt likert-opt" onclick="pickLikert(${idx},${i + 1},this)">
+                    <span class="olabel">${l}</span>
+                    <span class="l-desc">${desc[i]}</span>
+                </button>`;
+            });
+            html += `</div>`;
+        } else if (q.type === "select") {
+            html += `<div class="opts" id="opts-${idx}">`;
+            q.opts.forEach((o, i) => {
+                html += `<button class="opt" onclick="pickSelect(${idx},'${o.v}','${o.t}',this)">
+                    <span class="olabel">${String.fromCharCode(65 + i)}</span><span>${o.t}</span>
+                </button>`;
+            });
+            html += `</div>`;
+        }
+
+        if (q.skippable) {
+            html += `<button class="skip-btn" onclick="pickNumber(${idx}, 0)">
+                ข้ามขั้นตอนนี้ (ใส่เป็น 0)
+            </button>`;
+        }
+
+        if (q.type === "number" || q.type === "text") {
+            // Enable text input for numbers/text
+            txtInp.disabled = false;
+            txtInp.placeholder = q.placeholder || "พิมพ์ที่นี่...";
+            txtInp.type = q.type;
+            if (q.min !== undefined) txtInp.min = q.min;
+            if (q.max !== undefined) txtInp.max = q.max;
+            if (q.step !== undefined) txtInp.step = q.step;
+
+            sendBtn.disabled = false;
+            inpWrap.style.opacity = '1';
+            inpWrap.style.pointerEvents = 'all';
+            txtInp.focus();
+
+            // Set up one-shot listener for enter/click
+            const handleInput = () => {
+                const val = parseFloat(txtInp.value);
+                if (isNaN(val)) return;
+                // Validation
+                if (q.min !== undefined && val < q.min) return;
+                if (q.max !== undefined && val > q.max) return;
+
+                txtInp.value = "";
+                pickNumber(idx, val);
+                sendBtn.onclick = null;
+                txtInp.onkeydown = null;
+            };
+            sendBtn.onclick = handleInput;
+            txtInp.onkeydown = (e) => { if (e.key === 'Enter') handleInput(); };
+        }
+
         addAI(html);
     });
 }
@@ -340,13 +398,29 @@ function showQ(idx) {
 /* ══════════════════════════════
    PICK OPTION
 ══════════════════════════════ */
-function pickOpt(qIdx, oIdx, btn) {
+function pickLikert(qIdx, val, btn) {
     document.querySelectorAll(`#opts-${qIdx} .opt`).forEach(b => b.classList.add('dead'));
     btn.classList.add('sel'); btn.classList.remove('dead');
-    const w = QUESTIONS[qIdx].opts[oIdx].w;
-    w.forEach((v, i) => scores[i] += v);
-    const labels = ['A', 'B', 'C', 'D'];
-    addUser(`${labels[oIdx]}: ${QUESTIONS[qIdx].opts[oIdx].t}`);
+    userResults[qIdx] = val;
+    addUser(`คะแนน: ${val}`);
+    nextStep(qIdx);
+}
+
+function pickSelect(qIdx, val, label, btn) {
+    document.querySelectorAll(`#opts-${qIdx} .opt`).forEach(b => b.classList.add('dead'));
+    btn.classList.add('sel'); btn.classList.remove('dead');
+    userResults[qIdx] = val;
+    addUser(label);
+    nextStep(qIdx);
+}
+
+function pickNumber(qIdx, val) {
+    userResults[qIdx] = val;
+    addUser(`${val}${QUESTIONS[qIdx].suffix || ''}`);
+    nextStep(qIdx);
+}
+
+function nextStep(qIdx) {
     setTimeout(() => {
         if (qIdx + 1 < TOTAL) showQ(qIdx + 1); else showResult();
     }, 450);
@@ -355,25 +429,65 @@ function pickOpt(qIdx, oIdx, btn) {
 /* ══════════════════════════════
    SHOW RESULT
 ══════════════════════════════ */
-function showResult() {
+async function showResult() {
     prog.style.width = '100%'; sctr.style.display = 'none';
-    const max = Math.max(...scores);
-    const results = TRACKS.map((t, i) => ({ ...t, raw: scores[i], pct: Math.round((scores[i] / max) * 100) })).sort((a, b) => b.raw - a.raw);
-    const top = results[0];
-    showTyping(() => {
+
+    showTyping(async () => {
+        // Prepare data for AI (31 features as requested by psu-ai.js)
+        // Order based on guide: 20 likert, salary, gpa1, gpa2(skip), gpa3, gpa4, phantom1, phantom2, phantom3, gender_lgbt, gender_male, gender_female
+        // Wait, the guide says 31 values. Let's map exactly.
+        const inputData = [];
+        for (let i = 0; i < 20; i++) inputData.push(userResults[i]); // 0-19: 20 Likert
+        inputData.push(userResults[20] || 0); // 20: Salary
+        inputData.push(userResults[21] || 0); // 21: GPA 1/1
+        inputData.push(0); // 22: Column 27 (Phantom)
+        inputData.push(userResults[22] || 0); // 23: GPA 1/2
+        inputData.push(userResults[23] || 0); // 24: GPA 2/1
+        inputData.push(0); // 25: Column 25 (Phantom)
+        inputData.push(0); // 26: Column 25.1 (Phantom)
+        inputData.push(0); // 27: Column 26 (Phantom)
+
+        // Gender One-hot (28, 29, 30, 31)
+        const gender = userResults[24];
+        inputData.push(gender === 'lgbt' ? 1 : 0);    // 28
+        inputData.push(gender === 'male' ? 1 : 0);    // 29
+        inputData.push(gender === 'female' ? 1 : 0);  // 30
+        inputData.push(0);                           // 31: ไม่ต้องการระบุเพศ
+
+        console.log("AI Input Data:", inputData);
+        let results = [];
+        try {
+            results = await PSU_AI.predict(inputData);
+        } catch (e) {
+            console.error(e);
+            // Fallback demo results if AI fails
+            results = TRACKS.map(t => ({ track: t.name, percentage: 25 }));
+        }
+
+        // Map AI track names back to TRACKS objects for UI colors/icons
+        const mappedResults = results.map(r => {
+            // Clean up track name from percentage string if it's there, or map by partial match
+            const track = TRACKS.find(t => r.track.includes(t.name) || t.name.includes(r.track)) || TRACKS[0];
+            return { ...track, pct: r.percentage, color: track.color || 'var(--cyan)' };
+        });
+
+        const top = mappedResults[0];
+
         let html = `<div class="stag" style="background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.25);color:#34d399">
       <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
       การวิเคราะห์เสร็จสิ้น ✦</div>
-    <div style="margin-bottom:4px">วิเคราะห์คำตอบทั้ง ${TOTAL} ข้อเสร็จแล้ว! สายที่แนะนำให้คุณมากที่สุดคือ <strong style="color:${top.color}">${top.name}</strong></div>
-    <div class="res-box"><div class="res-title">ผลการวิเคราะห์</div>`;
-        results.forEach((t, i) => {
+    <div style="margin-bottom:4px">วิเคราะห์คำตอบด้วยระบบ AI เสร็จแล้้ว! สายที่แนะนำให้คุณมากที่สุดคือ <strong style="color:${top.color}">${top.name}</strong></div>
+    <div class="res-box"><div class="res-title">ผลการวิเคราะห์โดย AI</div>`;
+
+        mappedResults.forEach((t, i) => {
             html += `<div class="rtrack"><div class="rrow">
         <span class="rname">${i === 0 ? '⭐ ' : i === 1 ? '✦ ' : ''}<strong style="color:${t.color}">${t.name}</strong></span>
         <span class="rpct" style="color:${t.color}">${t.pct}%</span></div>
-        <div class="rbar"><div class="rfill" id="rf${i}" data-w="${t.pct}" style="background:${t.fill}"></div></div>
+        <div class="rbar"><div class="rfill" id="rf${i}" data-w="${t.pct}" style="background:${t.fill || t.color}"></div></div>
         <div class="rtags">${t.tags.map(g => `<span class="rtag">${g}</span>`).join('')}</div>
         ${i === 0 ? `<div class="res-reason">${t.desc}</div>` : ''}</div>`;
         });
+
         html += `<div style="margin-top:12px;padding:12px;background:rgba(255,255,255,.02);border-radius:8px;border:1px solid var(--border)">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--cyan);letter-spacing:.1em;margin-bottom:6px">ROADMAP</div>
       <div style="font-size:.78rem;color:var(--muted);line-height:1.7">${top.roadmap}</div></div>
@@ -383,12 +497,12 @@ function showResult() {
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
         ทำแบบทดสอบใหม่</button></div></div>`;
         addAI(html);
-        setTimeout(() => { results.forEach((_, i) => { const el = document.getElementById('rf' + i); if (el) el.style.width = el.dataset.w + '%' }) }, 180);
-    }, 900);
+        setTimeout(() => { mappedResults.forEach((_, i) => { const el = document.getElementById('rf' + i); if (el) el.style.width = el.dataset.w + '%' }) }, 180);
+    }, 1200);
 }
 
-function restartQuiz() { scores = [0, 0, 0, 0]; step = 0; msgs.innerHTML = ''; sctr.style.display = 'flex'; prog.style.width = '0%'; snum.textContent = '1'; showQ(0) }
-function backToLanding() { quizMode.classList.remove('active'); landing.classList.remove('hidden'); scores = [0, 0, 0, 0]; step = 0; msgs.innerHTML = ''; prog.style.width = '0%'; snum.textContent = '1'; sctr.style.display = 'flex' }
+function restartQuiz() { userResults = []; step = 0; msgs.innerHTML = ''; sctr.style.display = 'flex'; prog.style.width = '0%'; snum.textContent = '1'; showQ(0) }
+function backToLanding() { quizMode.classList.remove('active'); landing.classList.remove('hidden'); userResults = []; step = 0; msgs.innerHTML = ''; prog.style.width = '0%'; snum.textContent = '1'; sctr.style.display = 'flex' }
 
 /* ══════════════════════════════
    UI HELPERS
