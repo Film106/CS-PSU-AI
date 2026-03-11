@@ -235,28 +235,28 @@ const QUESTIONS = [
 
 const TRACKS = [
     {
-        id: 'se', name: 'Software Engineering', color: 'var(--cyan)',
+        id: 'se', name: 'การพัฒนาซอฟต์แวร์ (Software Development)', color: 'var(--cyan)',
         fill: 'linear-gradient(90deg,#0ea5e9,#00e5ff)',
         tags: ['Web Dev', 'Mobile App', 'System Design', 'DevOps', 'Cloud'],
         desc: 'คุณชอบสร้างสิ่งที่จับต้องได้และมีผู้ใช้งานจริง มีความสามารถด้านการพัฒนาซอฟต์แวร์และ product thinking สายนี้จะพาคุณไปสู่การเป็น Full-Stack Developer หรือ Tech Lead ที่สามารถ deliver product ได้ตั้งแต่ต้นจนจบ',
         roadmap: 'Year 1-2: Programming, OOP, Database → Year 3: Web/Mobile, Agile, Cloud → Year 4: Senior Project, Internship'
     },
     {
-        id: 'ds', name: 'Data Science', color: '#38bdf8',
+        id: 'ds', name: 'ข้อมูลขนาดใหญ่และธุรกิจอัจฉริยะ (Big Data & Business Intelligence)', color: '#38bdf8',
         fill: 'linear-gradient(90deg,#0284c7,#38bdf8)',
         tags: ['Machine Learning', 'Python', 'Statistics', 'Data Viz', 'Big Data'],
         desc: 'คุณมีความสามารถในการมองหาแพทเทิร์นและวิเคราะห์ข้อมูล ชอบตั้งคำถามและหาคำตอบจากตัวเลข สายนี้จะพาคุณเป็น Data Scientist หรือ ML Engineer ที่สามารถเปลี่ยนข้อมูลดิบเป็น business insight ได้',
         roadmap: 'Year 1-2: Math, Stats, Python → Year 3: ML, Deep Learning, Visualization → Year 4: Research Project'
     },
     {
-        id: 'is', name: 'Intelligent Systems', color: '#818cf8',
+        id: 'is', name: 'ปัญญาประดิษฐ์และคอมพิวเตอร์วิทัศน์ (AI & Computer Vision)', color: '#818cf8',
         fill: 'linear-gradient(90deg,#4f46e5,#818cf8)',
         tags: ['AI/ML', 'Computer Vision', 'NLP', 'Robotics', 'Deep Learning'],
         desc: 'คุณมีความคิดสร้างสรรค์และชอบ challenge ที่ยาก ต้องการทำให้คอมพิวเตอร์ฉลาดขึ้น สายนี้เหมาะถ้าคุณอยากทำ research AI หรือสร้างระบบอัจฉริยะที่เปลี่ยนโลกได้',
         roadmap: 'Year 1-2: Math, Algorithm, Python → Year 3: AI, Computer Vision, NLP → Year 4: AI Research Project'
     },
     {
-        id: 'ns', name: 'Network & Security', color: '#34d399',
+        id: 'ns', name: 'เทคโนโลยีอินเทอร์เน็ตและเครือข่าย (Network & Internet Technology)', color: '#34d399',
         fill: 'linear-gradient(90deg,#059669,#34d399)',
         tags: ['Cybersecurity', 'Network Admin', 'Cloud', 'Penetration Testing', 'Forensics'],
         desc: 'คุณมีทัศนคติแบบ Guardian ชอบปกป้องและวิเคราะห์ระบบ สายนี้จะพาคุณสู่การเป็น Security Engineer หรือ Network Architect ที่เป็นที่ต้องการอย่างมากในยุคดิจิทัล',
@@ -458,6 +458,7 @@ async function showResult() {
         let results = [];
         try {
             results = await PSU_AI.predict(inputData);
+            console.log("AI Raw Predictions:", results);
         } catch (e) {
             console.error(e);
             // Fallback demo results if AI fails
@@ -466,8 +467,9 @@ async function showResult() {
 
         // Map AI track names back to TRACKS objects for UI colors/icons
         const mappedResults = results.map(r => {
-            // Clean up track name from percentage string if it's there, or map by partial match
-            const track = TRACKS.find(t => r.track.includes(t.name) || t.name.includes(r.track)) || TRACKS[0];
+            // Use trim() and includes to be extra safe with track name matching
+            const aiTrackName = r.track.trim();
+            const track = TRACKS.find(t => aiTrackName.includes(t.name.trim()) || t.name.trim().includes(aiTrackName)) || TRACKS[0];
             return { ...track, pct: r.percentage, color: track.color || 'var(--cyan)' };
         });
 
