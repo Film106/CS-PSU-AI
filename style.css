@@ -442,7 +442,7 @@ body::before {
 
 .hero-title {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-size: clamp(2rem, 8vw, 3.8rem);
   font-weight: 800;
   letter-spacing: -.03em;
   line-height: 1.1;
@@ -451,7 +451,9 @@ body::before {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmer 4s linear infinite, heroTextEntry 1s cubic-bezier(.16, 1, .3, 1) .4s both
+  animation: shimmer 4s linear infinite, heroTextEntry 1s cubic-bezier(.16, 1, .3, 1) .4s both;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 @keyframes shimmer {
@@ -624,6 +626,10 @@ body::before {
 @media(max-width:768px) {
   .hero-float {
     display: none
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 10vw, 2.5rem);
   }
 }
 
