@@ -1947,51 +1947,62 @@ body::before {
 
 /* Likert Scale and Input Styles */
 .likert-row {
-  display: grid !important;
-  grid-template-columns: repeat(5, 1fr) !important;
+  display: flex !important;
+  flex-direction: column !important;
   gap: 12px !important;
 }
 
-@media (max-width: 580px) {
-  .likert-row {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px !important;
-  }
+/* No changes needed here as it's now a single column flex */
 
-  /* Center the last two items if we have 5 */
-  .likert-row .likert-opt:nth-child(n+4) {
-    grid-column: span 1;
-  }
-}
-
-@media (max-width: 400px) {
-  .likert-row {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  .likert-row .likert-opt:last-child {
-    grid-column: span 2;
-  }
-}
+/* No changes needed here */
 
 .likert-opt {
-  flex-direction: column !important;
-  padding: 16px 8px !important;
-  text-align: center !important;
-  justify-content: center !important;
+  flex-direction: row !important;
+  padding: 18px 24px !important;
+  text-align: left !important;
+  justify-content: flex-start !important;
+  border-radius: 100px !important;
 }
 
-.likert-opt .olabel {
-  margin-right: 0 !important;
-  margin-bottom: 8px !important;
-  width: 28px !important;
-  height: 28px !important;
+.radio-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border2);
+  display: inline-block;
+  flex-shrink: 0;
+  position: relative;
+  transition: all .25s;
+}
+
+.opt:hover .radio-circle {
+  border-color: var(--cyan);
+}
+
+.opt.sel .radio-circle {
+  border-color: var(--cyan);
+  background: rgba(0, 229, 255, .1);
+}
+
+.opt.sel .radio-circle::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  animation: scaleIn .2s forwards;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .l-desc {
-  font-size: 0.65rem;
-  color: var(--muted);
-  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--text);
+  font-weight: 400;
+  margin-left: 8px;
 }
 
 input[type='number'] {

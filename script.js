@@ -335,12 +335,12 @@ function showQ(idx) {
 
         if (q.type === "likert") {
             const labels = ["1", "2", "3", "4", "5"];
-            const desc = ["ไม่จริงเลย", "", "", "", "จริงที่สุด"];
+            const desc = ["ไม่จริงเลย", "ไม่ค่อยจริง", "จริงปานกลาง", "ค่อนข้างจริง", "จริงที่สุด"];
             html += `<div class="opts likert-row" id="opts-${idx}">`;
             labels.forEach((l, i) => {
                 html += `<button class="opt likert-opt" onclick="pickLikert(${idx},${i + 1},this)">
-                    <span class="olabel">${l}</span>
-                    <span class="l-desc">${desc[i]}</span>
+                    <span class="radio-circle"></span>
+                    <span class="l-desc">${desc[i]} (${l})</span>
                 </button>`;
             });
             html += `</div>`;
