@@ -243,39 +243,6 @@ body::before {
   animation: shimmer 3s linear infinite
 }
 
-.nav-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .62rem;
-  letter-spacing: .08em;
-  background: rgba(0, 229, 255, .06);
-  border: 1px solid rgba(0, 229, 255, .18);
-  color: var(--cyan);
-  padding: 3px 10px;
-  border-radius: 100px;
-  animation: badgePulse 4s ease-in-out infinite
-}
-
-@keyframes badgePulse {
-  0%, 100% { box-shadow: 0 0 0 rgba(0, 229, 255, 0) }
-  50% { box-shadow: 0 0 12px rgba(0, 229, 255, .15) }
-}
-
-.bdot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 7px var(--green);
-  animation: bp 2s ease-in-out infinite
-}
-
-@keyframes bp {
-  0%, 100% { transform: scale(1) }
-  50% { transform: scale(1.6); opacity: .5 }
-}
 
 .hero {
   min-height: 100vh;
